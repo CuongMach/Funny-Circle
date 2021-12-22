@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funny circles</title>
+    <script src="funnycircles.js"></script>
+</head>
+<body>
+<canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+    for(let i=0; i<5; i++){
+        let ctx = document.getElementById("myCanvas").getContext("2d");
+        let radius = Math.floor(Math.random()*80);
+        let x = Math.random() * window.innerWidth;
+        let y = Math.random() * window.innerHeight;
+        // let circle = new Circle(80,80,80); vẽ hình tròn có bán kính 80
+        let circle = new Circle (x,y,radius);
+        ctx.beginPath();
+        ctx.arc(circle.x, circle.y, circle.radius, 0, 2*Math.PI);
+        ctx.fillStyle = circle.getRandomColor();
+        ctx.fill();
+    }
+
+</script>
+</body>
+</html>
